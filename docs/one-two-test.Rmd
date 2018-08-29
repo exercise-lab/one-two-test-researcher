@@ -1,0 +1,53 @@
+---
+title: "The impact of inheriting software artifacts on future problem solving"
+output:
+  github_document: {}
+---
+```{r config, include=FALSE}
+library(knitr)
+opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE)
+read_chunk("../dot/one-two-test-diachronic.gv", labels = "one-two-test-diachronic")
+```
+```{r setup, include=FALSE}
+library(tidyverse)
+```
+
+# Research questions
+
+1. How does inheriting a partial solution from someone else compare to solving the full problem individually?
+2. Are some languages more heritable than others?
+
+# Methods
+
+## Materials
+
+Participants solved programming puzzles taken from Exercism.io.
+
+```{r exercises}
+library(exercism)
+data("problem_specifications")
+selected_problems <- problem_specifications %>%
+  filter(n_test_cases == 2)
+
+base_url <- "https://github.com/exercism/problem-specifications/blob/master/exercises/"
+selected_problems %>%
+  mutate(exercise = paste0("[", exercise, "](", base_url, exercise, "/description.md)")) %>%
+  select(exercise, n_test_cases) %>%
+  kable()
+```
+
+```{r test-cases}
+data("test_cases")
+test_cases %>%
+  group_by(exercise) %>%
+  mutate(test_ix = 1:n()) %>%
+  ungroup() %>%
+  filter(exercise %in% selected_problems$exercise) %>%
+  select(exercise, test_ix, description) %>%
+  kable()
+```
+
+## Conditions
+
+```{r one-two-test-diachronic, engine="dot"}
+```
