@@ -1,7 +1,11 @@
-all: img/one-two-test-diachronic.png img/one-two-test-individual.png
-img/one-two-test-diachronic.png:
-img/one-two-test-individual.png:
+.PHONY: clean
+all: docs/one-two-test.md img/one-two-test.png
+docs/one-two-test.md: docs/one-two-test.Rmd
+docs/%.md: docs/%.Rmd
+	cd docs/ && Rscript -e "rmarkdown::render('$(shell basename $<)', output_file = '$(shell basename $@)', output_format = 'github_document')"
+img/one-two-test.png:
 img/%.png: dot/%.gv
 	dot -Tpng -o $@ $<
-docs/one-two-test.md: docs/one-two-test.Rmd
-	cd docs/ && Rscript -e "rmarkdown::render('$(basename $<)', output_file = '$(basename $@)', output_format = 'github_document')"
+clean:
+	rm docs/one-two-test.md
+	rm -rf docs/*_files docs/*_cache
