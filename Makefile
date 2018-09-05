@@ -7,5 +7,5 @@ img/one-two-test.png:
 img/%.png: dot/%.gv
 	dot -Tpng -o $@ $<
 clean:
-	rm docs/one-two-test.md
+	rm img/*.png
 	rm -rf docs/*_files docs/*_cache
