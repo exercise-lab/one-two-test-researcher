@@ -1,0 +1,25 @@
+---
+# Install the one-two-test repo on the computers in the lab
+- hosts: complab
+  tasks:
+    - name: Install ansible
+      apt: name=ansible state=present
+      become: yes
+
+    - name: Clone one-two-test repo
+      git:
+        repo: https://github.com/lupyanlab/one-two-test.git
+        dest: ~/experiments/one-two-test
+    # - name: Install PyCharm
+    #   command: snap install pycharm-community --classic
+
+    # - name: Download Eclipse
+    #   local_action:
+    #     get_url
+    #     url=http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/photon/R/eclipse-java-photon-R-linux-gtk-x86_64.tar.gz&mirror_id=272
+    #     dest=files/eclipse-java-photon-R-linux-gtk-x86_64.tar.gz
+
+    # - name: Install Eclipse
+    #   unarchive:
+    #     src: files/eclipse-java-photon-R-linux-gtk-x86_64.tar.gz
+    #     dest: /usr/local/eclipse

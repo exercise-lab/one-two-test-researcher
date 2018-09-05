@@ -1,0 +1,8 @@
+---
+
+- hosts: localhost
+  tasks:
+    - user:
+        name: "{{ username }}"
+        state: absent
+        remove: yes
