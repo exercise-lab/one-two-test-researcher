@@ -1,5 +1,13 @@
 # Methods
 
+## Reproducing
+
+Use pipenv to install the required python packages into a virtualenv.
+
+```bash
+pipenv install --dev
+```
+
 ## Install the experiment
 
 First install the experiment on all of the lab computers.
