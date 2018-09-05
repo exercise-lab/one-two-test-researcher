@@ -1,6 +1,7 @@
 ---
 
 - hosts: localhost
+  become: yes
   tasks:
     - user:
         name: "{{ username }}"
