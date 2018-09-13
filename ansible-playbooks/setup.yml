@@ -8,3 +8,7 @@
         password: "{{ username | password_hash('sha512') }}"
         shell: /bin/bash
         state: present
+
+    - template:
+        src: templates/bash_profile.j2
+        dest: ~/.bash_profile

@@ -1,15 +1,41 @@
 ---
 # Install the one-two-test repo on the computers in the lab
 - hosts: complab
+  become: yes
+  become_user: lupyanlab
   tasks:
     - name: Install ansible
       apt: name=ansible state=present
-      become: yes
 
     - name: Clone one-two-test repo
       git:
         repo: https://github.com/lupyanlab/one-two-test.git
         dest: ~/experiments/one-two-test
+
+    - name: Download logkeys
+      unarchive:
+        src: https://launchpad.net/ubuntu/+archive/primary/+sourcefiles/logkeys/0.1.1a+git5ef6b0dcb9e3-2/logkeys_0.1.1a+git5ef6b0dcb9e3.orig.tar.gz
+        dest: ~/
+        remote_src: yes
+
+    - name: Rename logkeys archive
+      command: mv ~/logkeys_0.1.1a+git5ef6b0dcb9e3 ~/logkeys_0.1.1
+      args:
+        creates: ~/logkeys_0.1.1
+
+    - name: Install logkeys
+      shell: ./configure && make && sudo make install
+      args:
+        chdir: ~/logkeys_0.1.1
+
+    - name: Configure logkeys startup script
+      lineinfile:
+        path: /usr/local/etc/logkeys-start.sh
+        regexp: '^logkeys'
+        line: 'logkeys --start --output=~/.key.log'
+      become: yes
+      become_user: root
+
     # - name: Install PyCharm
     #   command: snap install pycharm-community --classic
 
