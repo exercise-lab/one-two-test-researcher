@@ -2,6 +2,8 @@
 
 - hosts: localhost
   become: yes
+  vars_files:
+    - vars/participant.yml
   tasks:
     - user:
         name: "{{ username }}"
@@ -9,6 +11,14 @@
         shell: /bin/bash
         state: present
 
+    - file:
+        path: "{{ keylog_file }}"
+        state: touch
+
     - template:
-        src: templates/bash_profile.j2
-        dest: ~/.bash_profile
+        src: "templates/{{ item }}.j2"
+        dest: "~/.{{ item }}"
+      become_user: "{{ username }}"
+      with_items:
+        - bash_profile
+        - bash_logout

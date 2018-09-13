@@ -1,0 +1,25 @@
+---
+
+- name: Download logkeys
+  unarchive:
+    src: https://launchpad.net/ubuntu/+archive/primary/+sourcefiles/logkeys/0.1.1a+git5ef6b0dcb9e3-2/logkeys_0.1.1a+git5ef6b0dcb9e3.orig.tar.gz
+    dest: ~/
+    remote_src: yes
+
+- name: Rename logkeys archive
+  command: mv ~/logkeys_0.1.1a+git5ef6b0dcb9e3 ~/logkeys_0.1.1
+  args:
+    creates: ~/logkeys_0.1.1
+
+- name: Install logkeys
+  shell: ./configure && make && sudo make install
+  args:
+    chdir: ~/logkeys_0.1.1
+
+- name: Configure logkeys startup script
+  lineinfile:
+    path: /usr/local/etc/logkeys-start.sh
+    regexp: '^logkeys'
+    line: 'logkeys --start --output={{ keylog_file }}'
+  become: yes
+  become_user: root
