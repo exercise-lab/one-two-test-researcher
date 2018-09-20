@@ -1,6 +1,6 @@
 ---
 
-- name: Download logkeys
+- name: Download logkeys program
   unarchive:
     src: https://launchpad.net/ubuntu/+archive/primary/+sourcefiles/logkeys/0.1.1a+git5ef6b0dcb9e3-2/logkeys_0.1.1a+git5ef6b0dcb9e3.orig.tar.gz
     dest: ~/
@@ -15,6 +15,11 @@
   shell: ./configure && make && sudo make install
   args:
     chdir: ~/logkeys_0.1.1
+
+- name: Touch keylog file
+  file:
+    path: "{{ keylog_file }}"
+    state: touch
 
 - name: Configure logkeys startup script
   lineinfile:

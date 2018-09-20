@@ -4,6 +4,8 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+"github3.py" = "*"
+"jinja2" = "*"
 
 [dev-packages]
 black = "*"

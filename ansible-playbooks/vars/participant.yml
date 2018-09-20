@@ -1,1 +1,1 @@
-keylog_file: ~/.keys.log
+keylog_file: /home/lupyanlab/experiments/one-two-test/data/{{ ansible_hostname }}/keys.log

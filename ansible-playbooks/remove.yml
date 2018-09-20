@@ -2,8 +2,12 @@
 
 - hosts: localhost
   become: yes
+  become_user: lupyanlab
   tasks:
     - user:
         name: "{{ username }}"
         state: absent
         remove: yes
+
+    - name: Turn off keylogger
+      command: llkk

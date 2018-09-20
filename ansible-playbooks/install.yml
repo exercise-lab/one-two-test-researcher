@@ -3,6 +3,8 @@
 - hosts: complab
   become: yes
   become_user: lupyanlab
+  vars_files:
+    - vars/participant.yml
   tasks:
     - name: Install ansible
       apt: name=ansible state=present
