@@ -6,6 +6,8 @@ name = "pypi"
 [packages]
 "github3.py" = "*"
 "jinja2" = "*"
+gitpython = "*"
+pip = "==18.0"
 
 [dev-packages]
 black = "*"
