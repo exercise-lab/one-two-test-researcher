@@ -8,6 +8,3 @@
         name: "{{ username }}"
         state: absent
         remove: yes
-
-    - name: Turn off keylogger
-      command: llkk

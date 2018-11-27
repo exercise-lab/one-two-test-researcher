@@ -1,0 +1,15 @@
+---
+ssh_key_file: "/home/lupyanlab/.ssh/id_rsa"
+
+keylog_dir: /home/lupyanlab/keylogs/pilot
+keylog_file: "{{ keylog_dir }}/pilot-keys-{{ username }}.log"
+
+keymap: /usr/local/etc/keymap
+
+problem_repo: "git@github.com:exercise-lab/pilot-{{ language }}-{{ problem }}.git"
+solution_repo: "git@github.com:exercise-lab/pilot-{{ language }}-{{ problem }}-{{ username }}.git"
+problems_dir: "/home/{{ username }}/problems/"
+problem_dst: "{{ problems_dir }}/{{ problem }}"
+
+scripts_dir: "/home/{{ username }}/.bin"
+snapshot_script_dst: "{{ scripts_dir }}/snapshot-{{ problem }}-repo"

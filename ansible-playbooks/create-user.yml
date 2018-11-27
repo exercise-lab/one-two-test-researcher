@@ -1,0 +1,55 @@
+---
+- hosts: localhost
+  gather_facts: no
+  connection: local
+  become: yes
+  become_user: root
+  vars_files:
+    - vars/main.yml
+  tasks:
+    - name: Create participant group
+      group:
+        name: participant
+        state: present
+
+    - name: Create a new user for the participant
+      user:
+        name: "{{ username }}"
+        group: participant
+        password: "{{ username | password_hash('sha512') }}"
+        shell: /bin/bash
+        state: present
+        ssh_key_file: "{{ ssh_key_file }}"
+
+    - name: Touch .ssh directory for user
+      file:
+        path: "/home/{{ username }}/.ssh"
+        state: directory
+        owner: "{{ username }}"
+        group: participant
+        mode: 0700
+
+    - name: Copy ssh key into place
+      copy:
+        src: "/home/lupyanlab/.ssh/id_rsa"
+        dest: "/home/{{ username }}/.ssh/id_rsa"
+        owner: "{{ username }}"
+        group: participant
+        mode: 0600
+
+    - name: Touch keylog file directory
+      file:
+        path: "{{ keylog_dir }}"
+        state: directory
+
+    - name: Touch keylog file
+      file:
+        path: "{{ keylog_file }}"
+        state: touch
+        owner: root
+        group: experimenter
+
+    - name: Configure logkeys startup script
+      template:
+        src: logkeys-start.j2
+        dest: /usr/local/etc/logkeys-start.sh

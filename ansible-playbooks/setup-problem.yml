@@ -1,0 +1,32 @@
+---
+- hosts: localhost
+  gather_facts: no
+  connection: local
+  become: yes
+  become_user: "{{ username }}"
+  vars_files:
+    - vars/main.yml
+  tasks:
+    - name: Clone the problem
+      git:
+        repo: "{{ problem_repo }}"
+        dest: "{{ problem_dst }}"
+        accept_hostkey: yes
+        key_file: "/home/{{ username }}/.ssh/id_rsa"
+
+    - name: Create a github endpoint
+      script: scripts/create-github-endpoint.py --dest "{{ problem_dst }}" --repo "pilot-{{ language }}-{{ problem }}-{{ username }}"
+
+    - name: Copy the snapshot script to the user's bin
+      template:
+        src: snapshot-problem-repo.j2
+        dest: "{{ snapshot_script_dst }}"
+        owner: "{{ username }}"
+        mode: "u+rwx"
+
+    - name: Set cron job to snapshot problem directory every 5 minutes
+      cron:
+        name: "snapshot {{ problem }}"
+        minute: "*/5"
+        job: "{{ snapshot_script_dst }}"
+        user: "{{ username }}"

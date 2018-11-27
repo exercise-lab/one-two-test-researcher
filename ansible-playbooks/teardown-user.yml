@@ -1,0 +1,11 @@
+---
+- hosts: localhost
+  gather_facts: no
+  connection: local
+  become: yes
+  become_user: root
+  tasks:
+    - name: Remove participant
+      user:
+        name: "{{ username }}"
+        state: absent
