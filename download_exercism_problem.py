@@ -29,7 +29,7 @@ def commit_problem_files(repo):
 
 def push_problem_to_github(github, repo, repo_name):
     org = github.organization("exercise-lab")
-    org.create_repository(repo_name)
+    org.create_repository(repo_name, private=True)
     repo.create_remote("origin", f"git@github.com:exercise-lab/{repo_name}.git")
     repo.git.push("-u", "origin", "master")
 
@@ -68,8 +68,8 @@ if __name__ == '__main__':
             f.write(env_tmpl.render(username=username, password=password))
 
     github = github3.login(username, password)
-    repo = create_problem_repo(github, args.problem, args.language)
+    repo = create_problem_repo(args.problem, args.language)
     download_problem(github, args.problem, args.language)
     commit_problem_files(repo)
-    repo_name = f"pilot-{args.language}-{args.problem}"
+    repo_name = f"one-two-test-{args.language}-{args.problem}"
     push_problem_to_github(github, repo, repo_name)
