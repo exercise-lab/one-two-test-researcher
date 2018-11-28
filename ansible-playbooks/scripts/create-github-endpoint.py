@@ -9,7 +9,6 @@ def create_github_repo(repo):
     try:
         org.create_repository(repo, private=True)
     except github3.exceptions.UnprocessableEntity:
-        print("maybe repo is already created?")
         pass
 
 

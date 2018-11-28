@@ -1,10 +1,10 @@
-# Running the pilot study
+# Running the One Two Test experiment
 
-Complete the steps below to set up the computer for a pilot participant.
+Complete the steps below to set up the computer for a participant in the One Two Test experiment.
 
-## Boot the computers in Linux
+## Boot the computers in Ubuntu
 
-If you are in Windows, restart the computer and press **F12** when you see the screen with the Dell logo. On the boot menu, select the drive with a name beginning with **WDC**. The system will boot in Linux.
+If you are in Windows, restart the computer and press **F12** when you see the screen with the Dell logo. On the boot menu, select the drive with the name **ubuntu**. The system will boot in Ubuntu.
 
 ## Setting up for a participant
 
@@ -14,7 +14,7 @@ account. Then complete the following steps:
 1. Open a terminal (shortcut: Ctrl+Alt+t) and navigate to the correct experiment directory.
 
 ```
-cd ~/experiments/pilot
+cd ~/experiments/one-two-test
 ```
 
 2. Activate the right version of python in the terminal session
@@ -29,8 +29,8 @@ pipenv shell
 python run.py --help
 python run.py --username pierce \
               --language java   \
-              --problem hello-world two-fer saddle-points
-python run.py -u pierce -l java -p hello-world two-fer saddle-points
+              --problem hello-world saddle-points
+python run.py -u pierce -l java -p hello-world saddle-points
 ```
 
 **Summary**
@@ -55,16 +55,7 @@ it's the first time this user has logged on.
 2. Open a navigator window (click on the Files app in the sidebar) and navigate
    to the problems directory.
 
-3. Open a terminal window and navigate to the problems directory. Show the 
-   participant how to run the tests.
-
-```bash
-cd ~/problems/
-cd hello-world
-gradle test
-```
-
-4. Open each of the problems in the expected IDE.
+3. Open each of the problems in the expected IDE.
 
 **Java: Eclipse**
 
@@ -74,5 +65,10 @@ Using the app launcher (lower left corner of the Ubuntu GUI), open the Eclipse a
 File > Import > Gradle project
 ```
 
-Run the tests by pressing the green "Play" button in the menu bar.
+Run the tests by opening the test file and pressing the green "Play" button in the menu bar. Run the file as a JUnit test.
 
+**Python: PyCharm**
+
+Using the app launcher (lower left corner of the Ubuntu GUI), open the PyCharm app. Then open the problem as a Python project from the PyCharm app File menu.
+
+Run the tests by opening the test file and selecting "Run 'pytest for test_file_name.py'".
