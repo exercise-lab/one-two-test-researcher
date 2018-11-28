@@ -15,7 +15,7 @@
         key_file: "/home/{{ username }}/.ssh/id_rsa"
 
     - name: Create a github endpoint
-      script: scripts/create-github-endpoint.py --dest "{{ problem_dst }}" --repo "pilot-{{ language }}-{{ problem }}-{{ username }}"
+      command: pipenv run python scripts/create-github-endpoint.py --dest "{{ problem_dst }}" --repo "one-two-test-{{ language }}-{{ problem }}-{{ username }}"
 
     - name: Copy the snapshot script to the user's bin
       template:
