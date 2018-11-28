@@ -15,7 +15,14 @@
         key_file: "/home/{{ username }}/.ssh/id_rsa"
 
     - name: Create a github endpoint
-      command: pipenv run python scripts/create-github-endpoint.py --dest "{{ problem_dst }}" --repo "one-two-test-{{ language }}-{{ problem }}-{{ username }}"
+      command: pipenv run python scripts/create-github-endpoint.py --repo "one-two-test-{{ language }}-{{ problem }}-{{ username }}"
+      become: yes
+      become_user: lupyanlab
+
+    - name: Point problem to new github endpoint
+      command: python3 scripts/set-remote-url.py --dest "{{ problem_dst }}" --repo "one-two-test-{{ language }}-{{ problem }}-{{ username }}"
+      become: yes
+      become_user: "{{ username }}"
 
     - name: Copy the snapshot script to the user's bin
       template:
