@@ -1,9 +1,6 @@
 [submodule "problems/java/exercises/hello-world"]
 	path = problems/java/exercises/hello-world
 	url = git@github.com:exercise-lab/one-two-test-java-hello-world
-[submodule "problems/java/exercises/two-fer"]
-	path = problems/java/exercises/two-fer
-	url = git@github.com:exercise-lab/one-two-test-java-two-fer
 [submodule "problems/java/exercises/saddle-points"]
 	path = problems/java/exercises/saddle-points
 	url = git@github.com:exercise-lab/one-two-test-java-saddle-points
@@ -13,6 +10,3 @@
 [submodule "problems/python/exercises/hello-world"]
 	path = problems/python/exercises/hello-world
 	url = git@github.com:exercise-lab/one-two-test-python-hello-world
-[submodule "problems/python/exercises/two-fer"]
-	path = problems/python/exercises/two-fer
-	url = git@github.com:exercise-lab/one-two-test-python-two-fer
