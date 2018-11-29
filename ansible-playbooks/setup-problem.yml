@@ -31,9 +31,9 @@
         owner: "{{ username }}"
         mode: "u+rwx"
 
-    - name: Set cron job to snapshot problem directory every 5 minutes
+    - name: Set cron job to snapshot problem directory every 1 minutes
       cron:
         name: "snapshot {{ problem }}"
-        minute: "*/5"
+        minute: "*/1"
         job: "{{ snapshot_script_dst }}"
         user: "{{ username }}"
