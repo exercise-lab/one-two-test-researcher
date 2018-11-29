@@ -1,9 +1,6 @@
 ---
 ssh_key_file: "/home/lupyanlab/.ssh/id_rsa"
 
-keylog_dir: /home/lupyanlab/keylogs/pilot
-keylog_file: "{{ keylog_dir }}/pilot-keys-{{ username }}.log"
-
 keymap: /usr/local/etc/keymap
 
 experiment: "one-two-test"
@@ -11,6 +8,10 @@ problem_repo: "git@github.com:exercise-lab/{{ experiment }}-{{ language }}-{{ pr
 solution_repo: "git@github.com:exercise-lab/{{ experiment }}-{{ language }}-{{ problem }}-{{ username }}.git"
 problems_dir: "/home/{{ username }}/problems-{{ language }}/"
 problem_dst: "{{ problems_dir }}/{{ problem }}"
+
+
+keylog_dir: /home/lupyanlab/keylogs/
+keylog_file: "{{ keylog_dir }}/{{ experiment }}-keys-{{ username }}.log"
 
 scripts_dir: "/home/{{ username }}/.bin"
 snapshot_script_dst: "{{ scripts_dir }}/snapshot-{{ problem }}-{{ language }}-repo"

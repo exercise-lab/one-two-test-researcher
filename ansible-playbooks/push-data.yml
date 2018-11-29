@@ -5,9 +5,6 @@
   become: yes
   become_user: "{{ username }}"
   tasks:
-    - name: Turn off keylogger
-      command: llkk
-
     - name: Push all problem repos
       script: scripts/push-all-problem-repos.py
       args:
