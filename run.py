@@ -16,12 +16,8 @@ def setup_participant(username, problems, language):
     print(result.stdout)
 
     for problem in problems:
-        if problem == "saddle-points":
-            problem_branch = "part1"
-        else:
-            problem_branch = "master"
         result = subprocess.run(
-            ["ansible-playbook", "setup-problem.yml", "-e", f'{{"username":"{username}", "problem":"{problem}", "language":"{language}", "problem_branch":"{problem_branch}"}}'],
+            ["ansible-playbook", "setup-problem.yml", "-e", f'{{"username":"{username}", "problem":"{problem}", "language":"{language}"}}'],
             cwd=playbooks_dir,
         )
         print(result.stdout)
