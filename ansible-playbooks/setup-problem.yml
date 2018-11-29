@@ -13,6 +13,7 @@
         dest: "{{ problem_dst }}"
         accept_hostkey: yes
         key_file: "/home/{{ username }}/.ssh/id_rsa"
+        version: "{{ problem_branch }}"
 
     - name: Create a github endpoint
       command: pipenv run python scripts/create-github-endpoint.py --repo "one-two-test-{{ language }}-{{ problem }}-{{ username }}"
