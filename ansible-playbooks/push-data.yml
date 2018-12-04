@@ -4,6 +4,8 @@
   connection: local
   become: yes
   become_user: "{{ username }}"
+  vars_files:
+    - vars/main.yml
   tasks:
     - name: Push all problem repos
       script: scripts/push-all-problem-repos.py
