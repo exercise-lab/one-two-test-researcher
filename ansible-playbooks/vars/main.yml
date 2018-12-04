@@ -9,9 +9,10 @@ solution_repo: "git@github.com:exercise-lab/{{ experiment }}-{{ language }}-{{ p
 problems_dir: "/home/{{ username }}/problems-{{ language }}/"
 problem_dst: "{{ problems_dir }}/{{ problem }}"
 
-
 keylog_dir: /home/lupyanlab/keylogs/
 keylog_file: "{{ keylog_dir }}/{{ experiment }}-keys-{{ username }}.log"
+
+browser_histories_dir: /home/lupyanlab/browser_histories/
 
 scripts_dir: "/home/{{ username }}/.bin"
 snapshot_script_dst: "{{ scripts_dir }}/snapshot-{{ problem }}-{{ language }}-repo"

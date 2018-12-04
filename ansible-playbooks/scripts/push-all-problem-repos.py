@@ -5,6 +5,9 @@ import git
 
 def push_repo(problem):
     repo = git.Repo(problem)
+
+    # check if repo is dirty
+
     repo.remotes.origin.push()
 
 

@@ -3,7 +3,25 @@
   gather_facts: no
   connection: local
   become: yes
-  become_user: "{{ username }}"
+  become_user: lupyanlab
+  vars_files:
+    - vars/main.yml
   tasks:
     - name: Stop keylogger
       command: llkk
+
+    - name: Find Mozilla databases
+      find:
+        path: "~/.mozilla"
+        patterns: "places.sqlite,formhistory.sqlite"
+        recurse: yes
+      register: mozilla_dbs
+
+    - name: Touch browser histories dir
+      file:
+        path: "{{ browser_histories_dir }}"
+        state: directory
+
+    - debug: var=mozilla_dbs["files"]
+
+#    - name: Copy Mozilla databases to lupyanlab
