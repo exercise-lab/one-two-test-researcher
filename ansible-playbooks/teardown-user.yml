@@ -7,6 +7,14 @@
   vars_files:
     - vars/main.yml
   tasks:
+    - name: Turn off keylogger
+      command: llkk
+      become: yes
+      become_user: root
+
+    # remove cron jobs
+    # ...
+
     - name: Find Mozilla databases
       find:
         paths: "/home/{{ username }}/.mozilla"
