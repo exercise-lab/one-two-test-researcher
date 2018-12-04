@@ -30,3 +30,5 @@
       user:
         name: "{{ username }}"
         state: absent
+      become: yes
+      become_user: root
