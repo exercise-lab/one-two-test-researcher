@@ -28,7 +28,7 @@ if __name__ == "__main__":
 
     parser = argparse.ArgumentParser()
     parser.add_argument("--username", "-u", help="The username for the participant", required=True)
-    parser.add_argument("--problem", "-p", help="The problem to download", required=True, nargs="+")
+    parser.add_argument("--problem", "-p", help="The problem to download", required=True, nargs="+", default=["hello-world", "saddle-points"])
     parser.add_argument("--language", "-l", help="The language to solve it in", required=True)
     args = parser.parse_args()
 
