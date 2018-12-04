@@ -1,27 +1,19 @@
-# One Two Test Experiment
+# When a participant arrives
 
-## When the participants arrives
+## Consent forms
 
-### Consent forms
+Give the participant their pre-filled consent form to read and sign. Double
+check you have their "go to" language correct. Once they have signed it, bring
+them to their assigned computers and have them log in.
 
-Give each participant a consent form to read and sign.
+## Explain what will happen in the experiment
 
-### Explain what will happen in the experiment
-
-As you know, this is a research project on problem solving in different
-programming languages. In this experiment, you will work on two problems. The
-first one is a "hello world" warm up problem. All you need to do is get the
-program to print "Hello World". It's a warm up problem because we want you to
-get comfortable running the automated unit tests that we will use to verify that
-your solution is correct. Once you've finished the hello world problem, let us
-know, and we'll let you move on to the second problem, called "the saddle points
-problem." The saddle points problem is done in two parts. After you finish part
-1, let one of us know, and we will come over and get you started on part 2.
-
-In this experiment, we are interested in how easily people can pick up and
-continue code that was written by someone else. So that means we want you
-to use informative variable names and include comments wherever you think
-it might be helpful for someone else reading your code.
+- You will work on two problems: a hello world problem, and a saddle points
+  problem.
+- The hello world problem is very simple, you just write a function that
+  returns the string "Hello, World", but we have you do it so that you can
+  get used to running the unit tests which we will use to evaluate your
+  solutions.
 
 You should also know that it's ok to use the internet to Google things,
 but please don't try to find exact solutions to the problem you are solving.
@@ -34,7 +26,7 @@ and let you get started on the first problem. Once you've finished the first
 problem, we will come over and you can show us that you can run the tests and
 that the tests pass. Then you can start on the second problem.
 
-### Show each participant how to run the tests
+## Show each participant how to run the tests
 
 **Java: Eclipse**
 
