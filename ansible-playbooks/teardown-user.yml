@@ -7,21 +7,26 @@
   vars_files:
     - vars/main.yml
   tasks:
-    - name: Stop keylogger
-      command: llkk
-
     - name: Find Mozilla databases
       find:
-        path: "~/.mozilla"
+        paths: "/home/{{ username }}/.mozilla"
         patterns: "places.sqlite,formhistory.sqlite"
-        recurse: yes
+        recurse: "yes"
       register: mozilla_dbs
+      become_user: "{{ username }}"
 
     - name: Touch browser histories dir
       file:
         path: "{{ browser_histories_dir }}"
         state: directory
 
-    - debug: var=mozilla_dbs["files"]
+    - name: Copy Mozilla databases to lupyanlab
+      command: cp {{ item.path }} {{ browser_histories_dir }}/{{ username }}-{{ item.path | basename }}
+      with_items: "{{ mozilla_dbs.files }}"
+      become: yes
+      become_user: root
 
-#    - name: Copy Mozilla databases to lupyanlab
+    - name: Get rid of the user without deleting their files
+      user:
+        name: "{{ username }}"
+        state: absent
