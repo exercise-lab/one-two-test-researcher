@@ -1,0 +1,17 @@
+---
+- hosts: localhost
+  gather_facts: no
+  connection: local
+  become: yes
+  become_user: "{{ username }}"
+  vars:
+    saddle_points_problem_dir: "{{ problems_dir }}/saddle-points"
+  vars_files:
+    - vars/main.yml
+  tasks:
+    - name: Copy the merge script to the user's bin
+      template:
+        src: merge-saddle-points-part2.py
+        dest: "{{ scripts_dir }}/merge-saddle-points-part2.py"
+        owner: "{{ username }}"
+        mode: "u+rwx"

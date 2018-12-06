@@ -22,6 +22,13 @@ def setup_participant(username, problems, language):
         )
         print(result.stdout)
 
+    if "saddle-points" in problems:
+        result = subprocess.run(
+            ["ansible-playbook", "setup-saddle-points-helpers.yml", "-e", f'{{"username":"{username}", "problem":"saddle-points", "language":"{language}"}}'],
+            cwd=playbooks_dir,
+        )
+        print(result.stdout)
+
 
 if __name__ == "__main__":
     import argparse
