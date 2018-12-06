@@ -10,7 +10,7 @@ assert playbooks_dir.is_dir()
 
 def teardown_participant(username, language):
     result = subprocess.run(
-            ["ansible-playbook", "teardown.yml", "-e", f'{{"username":"{username}", "language":"{language}"}}'],
+        ["ansible-playbook", "teardown.yml", "-e", f'{{"username":"{username}", "language":"{language}"}}'],
         cwd=playbooks_dir,
     )
     print(result.stdout)
