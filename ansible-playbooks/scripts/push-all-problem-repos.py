@@ -12,6 +12,7 @@ def push_repo(problem):
         repo.git.commit("Adding untracked files before push")
 
     repo.remotes.origin.push()
+    repo.git.push("--tags")
 
 
 if __name__ == "__main__":
