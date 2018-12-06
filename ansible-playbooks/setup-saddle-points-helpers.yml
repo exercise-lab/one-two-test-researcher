@@ -11,7 +11,7 @@
   tasks:
     - name: Copy the merge script to the user's bin
       template:
-        src: merge-saddle-points-part2.py
+        src: merge-saddle-points-part2.j2
         dest: "{{ scripts_dir }}/merge-saddle-points-part2.py"
         owner: "{{ username }}"
         mode: "u+rwx"

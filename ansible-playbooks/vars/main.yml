@@ -6,7 +6,7 @@ keymap: /usr/local/etc/keymap
 experiment: "one-two-test"
 problem_repo: "git@github.com:exercise-lab/{{ experiment }}-{{ language }}-{{ problem }}.git"
 solution_repo: "git@github.com:exercise-lab/{{ experiment }}-{{ language }}-{{ problem }}-{{ username }}.git"
-problems_dir: "/home/{{ username }}/problems-{{ language }}/"
+problems_dir: "/home/{{ username }}/problems-{{ language }}"
 problem_dst: "{{ problems_dir }}/{{ problem }}"
 
 keylog_dir: /home/lupyanlab/keylogs/
