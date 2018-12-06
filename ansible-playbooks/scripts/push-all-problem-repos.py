@@ -9,7 +9,7 @@ def push_repo(problem):
     # check if repo is dirty
     if repo.is_dirty():
         repo.git.add(".")
-        repo.git.commit("Adding untracked files before push")
+        repo.git.commit("-m Adding untracked files before push")
 
     repo.remotes.origin.push()
     repo.git.push("--tags")
