@@ -15,6 +15,6 @@ def push_repo(problem):
 
 
 if __name__ == "__main__":
-    problems = Path(".").listdir()
+    problems = Path(".").glob("*")
     for problem in problems:
         push_repo(problem)
