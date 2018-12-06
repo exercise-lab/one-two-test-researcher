@@ -1,0 +1,17 @@
+#!/usr/bin/env python3
+import git
+
+problem = "{{ saddle_points_problem_dir }}"
+
+repo = git.Repo(problem)
+
+# check if repo is dirty
+if repo.is_dirty():
+    repo.git.add(".")
+    repo.git.commit("-m Adding untracked files before push")
+
+# tag the end of part1
+repo.git.tag("part1done")
+
+# merge part2
+repo.git.merge("-m 'Add part2' origin/part2")
