@@ -7,7 +7,7 @@ these steps to start them on part2.
 script that merges in part2.
 
 ```
-bash ~/.bin/merge-saddle-points-part2.py
+~/.bin/merge-saddle-points-part2.py
 ```
 
 2. If a new file containing Part2 tests doesn't appear in their IDE, refresh the
