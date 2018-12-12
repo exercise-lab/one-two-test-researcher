@@ -10,6 +10,7 @@ read_chunk("../dot/one-two-test.gv", labels = "one-two-test")
 ```
 ```{r setup, include=FALSE}
 library(tidyverse)
+library(exercism)
 ```
 
 # Research questions
@@ -23,8 +24,7 @@ library(tidyverse)
 
 Participants solved programming puzzles taken from Exercism.io.
 
-```{r exercises}
-library(exercism)
+```{r exercises, eval=FALSE}
 data("problem_specifications")
 selected_problems <- problem_specifications %>%
   filter(n_test_cases == 2)
@@ -36,7 +36,7 @@ selected_problems %>%
   kable()
 ```
 
-```{r test-cases}
+```{r test-cases, eval=FALSE}
 data("test_cases")
 test_cases %>%
   group_by(exercise) %>%
@@ -50,4 +50,16 @@ test_cases %>%
 ## Conditions
 
 ```{r one-two-test, engine="dot"}
+```
+
+## Results
+
+### Python
+
+```{r python-test-results}
+results <- read_csv("../data/saddle-points-python.csv")
+
+results %>%
+  count(subj_id, RESULT) %>%
+  kable()
 ```

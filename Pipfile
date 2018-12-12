@@ -9,6 +9,9 @@ name = "pypi"
 pypandoc = "*"
 gitpython = "*"
 pip = "==18.0"
+pytest-excel = "*"
+pandas = "*"
+xlrd = "*"
 
 [dev-packages]
 black = "*"

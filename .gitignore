@@ -1,4 +1,6 @@
 docs/*.html
+docs/*_cache/
+docs/*_files/
 .env
 .Rproj.user
 .Rhistory

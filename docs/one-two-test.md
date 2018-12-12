@@ -11,21 +11,23 @@ The impact of inheriting software artifacts on future problem solving
 
 ## Materials
 
-Participants solved programming puzzles taken from
-Exercism.io.
-
-| exercise                                                                                                             | n\_test\_cases |
-| :------------------------------------------------------------------------------------------------------------------- | -------------: |
-| [beer-song](https://github.com/exercism/problem-specifications/blob/master/exercises/beer-song/description.md)       |              2 |
-| [zebra-puzzle](https://github.com/exercism/problem-specifications/blob/master/exercises/zebra-puzzle/description.md) |              2 |
-
-| exercise     | test\_ix | description               |
-| :----------- | -------: | :------------------------ |
-| beer-song    |        1 | single verse              |
-| beer-song    |        2 | multiple verses           |
-| zebra-puzzle |        1 | resident who drinks water |
-| zebra-puzzle |        2 | resident who owns zebra   |
+Participants solved programming puzzles taken from Exercism.io.
 
 ## Conditions
 
 ![](one-two-test_files/figure-gfm/one-two-test-1.png)<!-- -->
+
+## Results
+
+### Python
+
+| subj\_id | RESULT |  n |
+| :------- | :----- | -: |
+| OTT100   | FAILED |  5 |
+| OTT101   | FAILED |  5 |
+| OTT102   | FAILED |  5 |
+| OTT106   | FAILED |  5 |
+| OTT108   | PASSED | 10 |
+| OTT109   | PASSED | 10 |
+| OTT117   | FAILED |  5 |
+| OTT14    | FAILED |  5 |
