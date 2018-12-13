@@ -54,3 +54,5 @@
       template:
         src: logkeys-start.j2
         dest: /usr/local/etc/logkeys-start.sh
+        owner: "{{ username }}"
+        mode: "+x"
