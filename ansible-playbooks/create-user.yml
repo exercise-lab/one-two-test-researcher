@@ -15,7 +15,7 @@
     - name: Create a new user for the participant
       user:
         name: "{{ username }}"
-        groups: participant
+        group: participant
         append: yes
         password: "{{ username | password_hash('sha512') }}"
         shell: /bin/bash

