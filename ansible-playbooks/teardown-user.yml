@@ -38,3 +38,4 @@
 
     - name: Turn off the keylogger
       command: llkk
+      ignore_errors: yes
