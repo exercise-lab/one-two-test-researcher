@@ -22,5 +22,10 @@
         path: "{{ scripts_dir }}"
         state: directory
 
-    - name: Turn on the keylogger
-      command: llk
+#    - name: Turn on the keylogger
+#      command: llk
+
+    - name: Add .gnomerc to user's home directory
+      template:
+        src: gnomerc.j2
+        dest: "/home/{{ username }}/.gnomerc"
