@@ -19,4 +19,5 @@ except:
 
 # merge part2
 # repo.git.merge("-m 'Add part2' origin/part2")
-subprocess.call("git merge -m 'Add part2 tests' origin/part2", shell=True)
+subprocess.run("git merge -m 'Add part2 tests' origin/part2", shell=True,
+               cwd=problem)
