@@ -45,6 +45,12 @@ logged in to the `lupyanlab` account. Then complete the following steps:
 cd ~/experiments/one-two-test
 ```
 
+1. Make sure the repo is up to date.
+
+```
+git pull
+```
+
 2. Activate the right version of python in the terminal session.
 
 ```
@@ -95,3 +101,12 @@ Import all of the test problems.
 
 When opening subsequent projects, select the **Attach** option so that all
 projects are opened in the same IDE window.
+
+1. Start the keylogger.
+
+Start the keylogger by opening a terminal window (Ctrl+Alt+t) and entering the
+following command:
+
+```
+llk
+```
